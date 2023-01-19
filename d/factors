@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+"""Factorize as many numbers as possible
+into a product of two smaller numbers.
+"""
+import sys
+
+with open(sys.argv[1], "r") as fp:
+    Lines = fp.readlines()
+    new_list = [int(i) for i in Lines]
+    new_list.sort()
+
+    for line in new_list:
+        d = 2
+        while d < line:
+            if line % d == 0:
+                f = line // d
+                print("{}={}*{}".format(line, f, d))
+                break
+            else:
+                d += 1
